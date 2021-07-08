@@ -8,11 +8,17 @@ import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
 
 
 @Component
 public class GithubProvider {
+
+    private final static int READ_TIMEOUT =100;
+    private final static int  CONNECT_TIMEOUT = 60;
+    private final static int WRITE_TIMEOUT = 60;
+
     public String getAccessToken(AccessTokenDTO accessTokenDTO) {
 
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
@@ -24,6 +30,12 @@ public class GithubProvider {
                     .build();
 
 
+        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+        // Read timeout
+        clientBuilder.readTimeout(READ_TIMEOUT, TimeUnit.SECONDS);
+        clientBuilder.connectTimeout(CONNECT_TIMEOUT,TimeUnit.SECONDS);
+        clientBuilder.writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS);
+        client  = clientBuilder.build();
         try (Response response = client.newCall(request).execute()) {
                 // check if the String is our expected token
                 String token = response.body().string();
