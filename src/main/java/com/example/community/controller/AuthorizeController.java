@@ -3,6 +3,8 @@ package com.example.community.controller;
 import com.alibaba.fastjson.JSON;
 import com.example.community.dto.AccessTokenDTO;
 import com.example.community.dto.GithubUser;
+import com.example.community.mapper.UserMapper;
+import com.example.community.model.User;
 import com.example.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class AuthorizeController {
@@ -31,6 +34,9 @@ public class AuthorizeController {
     @Value("${github.redirect.url}")
     private String redirectURl;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state,
@@ -47,6 +53,10 @@ public class AuthorizeController {
 
         if(githubUser != null) {
             // Login Success, write in cookie and session
+
+            User user = new User(githubUser.getId(),githubUser.getName());
+            user.setGmtModified(user.getGmtCreate());
+            userMapper.insert(user);
             request.getSession().setAttribute("user",githubUser);
             return "redirect:/";
         } else  {
