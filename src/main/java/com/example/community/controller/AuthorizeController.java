@@ -57,6 +57,9 @@ public class AuthorizeController {
         if(githubUser != null) {
             // Login Success, write in cookie and session
             User user = new User(githubUser.getId(),githubUser.getName());
+            if(user.getName() == null) {
+                return "redirect:/";
+            }
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
             response.addCookie(new Cookie("token", user.getToken()));
