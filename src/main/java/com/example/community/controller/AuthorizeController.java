@@ -52,7 +52,7 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser =  githubProvider.getUser(accessToken);
-        System.out.println(JSON.toJSON(githubUser));
+        //System.out.println(JSON.toJSON(githubUser));
 
         if(githubUser != null) {
             // Login Success, write in cookie and session

@@ -50,7 +50,7 @@
             <div class = "col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <h2><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> 发布</h2>
                 <hr>
-                <form action="">
+                <form action="/publish" method="post">
                     <div class="form-group">
                         <label for="title">Enter Your Question</label>
                         <input type="text" class="form-control" id="title" name="title" placeholder="Title of the Question">
@@ -63,7 +63,9 @@
                         <label for="title">Question Tags</label>
                         <input type="text" class="form-control" id="tag" name="tag" placeholder="enter types of the question, separate by comma">
                     </div>
-                    <button type="submit" class="btn btn-success">（成功）Success</button>
+
+                    <span class="alert alert-danger" th:text="${error}"></span>
+                    <button type="submit" class="btn btn-success">发布</button>
                 </form>
             </div>
             <div class = "col-lg-3 col-md-12 col-sm-12">
