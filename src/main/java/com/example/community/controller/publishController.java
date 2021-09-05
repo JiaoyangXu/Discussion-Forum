@@ -37,23 +37,38 @@ public class publishController {
             HttpServletRequest request,
             Model model
             ) {
+
+        model.addAttribute("title", title);
+        model.addAttribute("description", description);
+        model.addAttribute("tag", tag);
+
+
+
         Cookie[] cookies = request.getCookies();
         User user = null;
         for(Cookie cookie: cookies) {
             if(cookie.getName().equals("token") ) {
                 String token = cookie.getValue();
                 user = userMapper.findByToken(token);
-                System.out.println(token);
                 if(user != null){
                     request.getSession().setAttribute("user", user);
                 }
                 break;
             }
         }
+        //check if all required fields are filled
+        if(check_valid_posting(title, description, tag, model) == false) {
+            return "publish";
+        }
+
+        // when user not logged in, return error message
         if(user == null) {
             model.addAttribute("error", "Please log in");
             return "publish";
         }
+
+
+
         Question question = new Question();
         question.setTitle(title);
         question.setTag(tag);
@@ -64,5 +79,23 @@ public class publishController {
 
         questionMapper.create(question);
         return "redirect:/";
+    }
+
+    public boolean check_valid_posting(String title, String description, String tag, Model model) {
+        if(!check_valid_input(title)) {
+            model.addAttribute("error", "请输入标题");
+            return false;
+        } else if(!check_valid_input(description)) {
+            model.addAttribute("error", "请输入内容详情");
+            return false;
+        } else if(!check_valid_input(tag)) {
+            model.addAttribute("error", "请输入问题标签");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean check_valid_input(String value) {
+        return !(value.equals(""));
     }
 }

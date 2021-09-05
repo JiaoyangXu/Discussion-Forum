@@ -52,7 +52,6 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser =  githubProvider.getUser(accessToken);
-        //System.out.println(JSON.toJSON(githubUser));
 
         if(githubUser != null) {
             // Login Success, write in cookie and session
@@ -63,7 +62,7 @@ public class AuthorizeController {
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
             response.addCookie(new Cookie("token", user.getToken()));
-            //request.getSession().setAttribute("user",githubUser);
+            //request.getSession().se tAttribute("user",githubUser);
             return "redirect:/";
         } else  {
             // Login Fails, please try again]
