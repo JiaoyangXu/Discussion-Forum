@@ -1,7 +1,10 @@
 package com.example.community.model;
 
+import lombok.Data;
+
 import java.util.UUID;
 
+@Data
 public class User {
     private int id;
     private String name;
@@ -9,62 +12,15 @@ public class User {
     private String token;
     private Long gmtCreate;
     private Long gmtModified;
+    private String avatarUrl;
 
 
-    public User(long id, String name ) {
+    public User(long id, String name, String avatarUrl ) {
         this.accountId = String.valueOf(id);
         this.name = name;
+        this.avatarUrl = avatarUrl;
         gmtCreate = System.currentTimeMillis();
         token = UUID.randomUUID().toString();
     }
     public User() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Long getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Long getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Long gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
 }

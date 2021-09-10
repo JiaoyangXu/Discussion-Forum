@@ -28,8 +28,6 @@ public class GithubProvider {
                     .url("https://github.com/login/oauth/access_token")
                     .post(body)
                     .build();
-
-
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
         // Read timeout
         clientBuilder.readTimeout(READ_TIMEOUT, TimeUnit.SECONDS);

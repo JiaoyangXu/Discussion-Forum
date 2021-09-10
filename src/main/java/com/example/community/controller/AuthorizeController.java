@@ -55,7 +55,7 @@ public class AuthorizeController {
 
         if(githubUser != null) {
             // Login Success, write in cookie and session
-            User user = new User(githubUser.getId(),githubUser.getName());
+            User user = new User(githubUser.getId(),githubUser.getName(), githubUser.getAvatar_url());
             if(user.getName() == null) {
                 return "redirect:/";
             }

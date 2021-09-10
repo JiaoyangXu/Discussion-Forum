@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<!-- head -->
 <head>
   <title>Getting Started: Serving Web Content</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/community.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
 <body>
 
+<!-- navigation bar -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,6 +50,22 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<tr th:each="questionDTO : ${questionDTOS}">
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object text-desc" th:src="${questionDTO.getUser().getAvatarUrl()}" alt="Responsive image">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading index-question-title" th:text="${questionDTO.getTitle()}"></h4>
+      <span th:text="${questionDTO.getCommentCount()}"></span>个回复-
+      <span th:text="${questionDTO.getViewCount()}"></span>个浏览-
+      <span th:text="${#calendars.format(questionDTO.getGmtCreate(),'dd MMMM yyyy')}">
+    </div>
+  </div>
+</tr>
 
 </body>
 </html>
