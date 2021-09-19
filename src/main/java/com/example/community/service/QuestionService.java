@@ -5,6 +5,8 @@ import com.example.community.mapper.QuestionMapper;
 import com.example.community.mapper.UserMapper;
 import com.example.community.model.Question;
 import com.example.community.model.User;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.Data;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.BeanUtils;
@@ -34,5 +36,15 @@ public class QuestionService {
         }
         return questionDTOS;
     }
+
+    public PageInfo<QuestionDTO> listWithPages(int pageStartNumber, int pageSize) {
+        PageHelper.startPage(pageStartNumber,pageSize);
+        List<QuestionDTO> questionDTOS= this.list();
+        // encapsulate questionDTOS to PageInfo
+        PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionDTOS);
+        return pageInfo;
+    }
+
+
 
 }

@@ -42,8 +42,6 @@ public class publishController {
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
 
-
-
         Cookie[] cookies = request.getCookies();
         User user = null;
         for(Cookie cookie: cookies) {
