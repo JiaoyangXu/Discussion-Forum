@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <!-- head -->
 <head>
-  <title>Getting Started: Serving Web Content</title>
+  <title>Discussion Forum</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="css/community.css">
@@ -23,8 +23,8 @@
     </div>
     <div class="media-body">
       <h4 class="media-heading index-question-title" th:text="${questionDTO.getTitle()}"></h4>
-      <span th:text="${questionDTO.getCommentCount()}"></span>个回复-
-      <span th:text="${questionDTO.getViewCount()}"></span>个浏览-
+      <span th:text="${questionDTO.getCommentCount()}"></span> replies-
+      <span th:text="${questionDTO.getViewCount()}"></span> views-
       <span th:text="${#calendars.format(questionDTO.getGmtCreate(),'yyyy-MM-dd HH:mm')}"></span>
   </div>
   </div>
@@ -37,10 +37,10 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a th:href="@{/(currentPage=1)}">首页</a></li>
-    <li><a th:href="@{/(currentPage=${questionPageInfo.getPageNum()-1})}">上一页</a></li>
-    <li><a th:href="@{/(currentPage=${questionPageInfo.getPageNum()+1})}">下一页</a></li>
-    <li><a th:href="@{/(currentPage=${QuestionPageNumber})}">尾页</a></li>
+    <li><a th:href="@{/(currentPage=1)}">Home</a></li>
+    <li><a th:href="@{/(currentPage=${questionPageInfo.getPageNum()-1})}">Prev</a></li>
+    <li><a th:href="@{/(currentPage=${questionPageInfo.getPageNum()+1})}">Next</a></li>
+    <li><a th:href="@{/(currentPage=${QuestionPageNumber})}">End</a></li>
     <li>
       <a th:href="@{/(currentPage=${questionPageInfo.getPageNum()+1})}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

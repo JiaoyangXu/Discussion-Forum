@@ -15,7 +15,7 @@
 <div class="container-fluid main" >
         <div class="row">
             <div class = "col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                <h2><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> 发布</h2>
+                <h2><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Publish</h2>
                 <hr>
                 <form action="/publish" method="post">
                     <div class="form-group">
@@ -31,14 +31,20 @@
                         <input type="text" class="form-control" id="tag" name="tag" placeholder="enter types of the question, separate by comma" th:value="${tag}">
                     </div>
                     <span th:if="${error != null}" class="alert alert-danger" th:text="${error}"></span>
-                    <button type="submit" class="btn btn-success">发布</button>
+                    <button type="submit" class="btn btn-success">publish</button>
                 </form>
             </div>
             <div class = "col-lg-3 col-md-12 col-sm-12">
+                <!--
                 <h3>问题发起指南</h3>
                 问题描述：请用精简的语言描述你的问题，不超过25字
                 问题补充：详细描述你的问题，确保问题描述清洗整洁，并提供相关资料
                 选择标签：选择一个或多个合适的标签，用逗号隔开
+                -->
+                <h3>Guide for Posting Questions</h3>
+                <br>Question Title: Briefly outline your question, with no more than 25 words</br>
+                <br>Question Description: Explain your question in detail</br>
+                <br>Question Tag: State one or more tags for your question, separate by comma</br>
             </div>
         </div>
     </div>

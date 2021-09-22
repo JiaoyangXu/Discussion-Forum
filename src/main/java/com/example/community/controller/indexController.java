@@ -51,10 +51,10 @@ public class indexController {
 
         // Show Description of Questions on index page
         List<QuestionDTO> questionDTOS = questionService.list();
-        PageInfo<QuestionDTO> pageInfo = questionService.listWithPages(Integer.parseInt(currentPage),5);
+        PageInfo<QuestionDTO> pageInfo = questionService.listWithPages(Integer.parseInt(currentPage),10);
         model.addAttribute("questionPageInfo", pageInfo);
         model.addAttribute("questionDTOS", questionDTOS);
-        model.addAttribute("QuestionPageNumber", questionDTOS.size()/5 +1);
+        model.addAttribute("QuestionPageNumber", questionDTOS.size()/10 +1);
         return "index";
     }
 }
