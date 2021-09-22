@@ -7,18 +7,18 @@ The discussion forum for the SEU Chengxian College, currently supporting posting
 
 ## How to Run
 
-###Install
+### Install
 ```
 git clone https://github.com/JiaoyangXu/Discussion-Forum.git
 ```
-###Run script to create local database
+### Run script to create local database
 ````
 mvn flyway:migrate
 ````
 
-###Open with Intellij IDEA Utimate and run project.
+### Open with Intellij IDEA Utimate and run project.
 
-###visit site
+### Visit site
 ````
 http://localhost:8887
 ````
@@ -32,14 +32,14 @@ http://localhost:8887
 * [Flyway](https://flywaydb.org/getstarted/firststeps/maven)
 * [Github OAuth](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app)	
 
-##TO-DO 
+## TO-DO 
 - [ ] Add more features
-    -[ ] Reply to posts
-    -[ ] Star posts and get notifications
-    -[ ] Add friends and private chat
-    -[ ] Support more login options (Google Account, Wechat)
+    - [ ] Reply to posts
+    - [ ] Star posts and get notifications
+    - [ ] Add friends and private chat
+    - [ ] Support more login options (Google Account, Wechat)
   
 - [ ] Optimize the structure
-  -[ ] Replace H2 database with MySQL or Oracle
-  -[ ] Separate front-end from the back-end and use React as the framework  
+  - [ ] Replace H2 database with MySQL or Oracle
+  - [ ] Separate front-end from the back-end and use React as the framework  
 
