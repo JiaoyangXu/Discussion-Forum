@@ -2,8 +2,8 @@
 The discussion forum for the SEU Chengxian College, currently supporting posting question, viewing questions, and log in with Github account 
 
 ## Demo
-![Image text](https://raw.githubusercontent.com/JiaoyangXu/Discussion-Forum/main/pictures/Index-Page.png)
-![Image text](https://raw.githubusercontent.com/JiaoyangXu/Discussion-Forum/main/pictures/publish-Page.png)
+![Image text](https://raw.githubusercontent.com/JiaoyangXu/Discussion-Forum/main/pictures/Home-page.png)
+![Image text](https://raw.githubusercontent.com/JiaoyangXu/Discussion-Forum/main/pictures/Post-Question.png)
 
 ## How to Run
 
