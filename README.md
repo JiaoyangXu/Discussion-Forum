@@ -1,5 +1,5 @@
 ## Discussion Forum
-The discussion forum for the SEU Chengxian College, currently supporting posting question, viewing questions, and log in with Github account 
+The discussion forum for the University of Waterloo, currently supporting posting question, viewing questions, and log in with Github account 
 
 ## Demo
 ![Image text](https://raw.githubusercontent.com/JiaoyangXu/Discussion-Forum/main/pictures/Home-page.png)
