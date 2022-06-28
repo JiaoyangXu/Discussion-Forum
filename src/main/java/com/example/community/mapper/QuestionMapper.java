@@ -10,8 +10,8 @@ import java.util.List;
 @Mapper
 public interface QuestionMapper {
 
-    @Insert("INSERT INTO Question (title, description,gmt_create,gmt_modified,creator,tag) " +
-            "VALUES (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
+    @Insert("INSERT INTO Question (title, description,gmt_create,gmt_modified,creator,tag, avatarUrl) " +
+            "VALUES (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag},#{avatarUrl})")
     void create(Question question);
 
     @Select("SELECT * FROM Question")
