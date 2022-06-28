@@ -34,12 +34,12 @@ http://localhost:8887
 
 ## TO-DO 
 - [ ] Add more features
-    - [ ] Reply to posts
+    - [X] Reply to posts
     - [ ] Star posts and get notifications
     - [ ] Add friends and private chat
-    - [ ] Support more login options (Google Account, Wechat)
+    - [X] Support more login options (Google Account, Wechat)
   
-- [ ] Optimize the structure
-  - [ ] Replace H2 database with MySQL or Oracle
-  - [ ] Separate front-end from the back-end and use React as the framework  
+- [X] Optimize the structure
+  - [X] Replace H2 database with MySQL or Oracle
+  - [X] Separate front-end from the back-end and use React as the framework  
 
